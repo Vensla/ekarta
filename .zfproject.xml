@@ -14,6 +14,7 @@
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Pretraga"/>
+        <formFile formName="Naruci"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
