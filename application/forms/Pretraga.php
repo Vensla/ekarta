@@ -27,41 +27,20 @@ class Application_Form_Pretraga extends Zend_Form
         
         $submit = new Zend_Form_Element_Submit('btnLista');
         $submit->setLabel('Pronađi rutu');
-        $submit->class = 'form-control btn btn-primary';
+        $submit->class = 'form-control btn-primary';
         
-        $this->addElements(array($od,$do,$datum));
-        
-        $od->setDecorators(array(
-            'ViewHelper',
-            array(array('data' => 'HtmlTag'),array('tag' => 'div','class'=>'col-sm-4'))
-            
-        ));
-        
-        $do->setDecorators(array(
-            'ViewHelper',
-            array(array('data' => 'HtmlTag'),array('tag' => 'div','class'=>'col-sm-4'))       
-        ));
-        
-        $datum->setDecorators(array(
-            'ViewHelper',
-            array(array('data' => 'HtmlTag'),array('tag' => 'div','class'=>'col-sm-4'))
-            
-        ));
-        
-        $this->setDecorators(array('FormElements',
-            array('HtmlTag', array('tag' => 'div', 'class'=>'form-group')),
-           
-            'Form'
-            
-        ));
+        $this->addElements(array($od,$do,$datum,$submit));
         
         $this->setElementDecorators(array(
             'ViewHelper',
             'Errors',
-            array(array('data' => 'HtmlTag'),array('tag' => 'td', 'class'=>'element')),
-            array('Label', array('tag' => 'td')),
-            array(array('row' => 'HtmlTag'), array('tag' => 'tr'))
-        ), array($od,$do));
+            array(array('data' => 'HtmlTag'),array('tag' => 'div', 'class'=>'col-sm-3'))
+        ));
+
+        $this->setDecorators(array('FormElements',
+            array('HtmlTag', array('tag' => 'div', 'class'=>'form-group')),
+            'Form'
+        ));
     }
 
 
