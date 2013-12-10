@@ -21,7 +21,8 @@
       <div class="container">
         <h1>E-karta!</h1>
         <p>Najbrži i najlakši način da naručite karte za putovanje vozom.</p>
-        <form action="" method="post" name="podaci">
+        <?php echo $this->layout()->content; ?>
+        <!--<form action="" method="post" name="podaci">
           <div class="form-group">
             <div class="row">
               <div class="col-sm-4">
@@ -30,7 +31,19 @@
               <div class="col-sm-4">
                 <input type="textbox" class="form-control" name="tbOdrediste" placeholder="Odredište" list="Stanice">
               </div>
-              <datalist id="Stanice">               
+              
+              <div class="col-sm-4">
+                <input type="textbox" class="form-control" name="Datum" placeholder="Datum" id="datepicker">
+              </div>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+              <input type="submit" class="form-control btn btn-primary" value="Pronađi &raquo;">
+            </div>
+          </div>
+        </form> -->
+        <datalist id="Stanice">               
                 <option value="ADRANI">
                 <option value="ADROVAC">
                 <option value="ALEKSA ŠANTIĆ">
@@ -56,17 +69,6 @@
                 <option value="BANOVA JARUGA">
                 <option value="BAR">
               </datalist>
-              <div class="col-sm-4">
-                <input type="textbox" class="form-control" name="Datum" placeholder="Datum" id="datepicker">
-              </div>
-            </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-              <input type="submit" class="form-control btn btn-primary" value="Pronađi &raquo;">
-            </div>
-          </div>
-        </form>
       </div>
     </div>
 
@@ -94,7 +96,7 @@
                 </tr>
               </thead>
               <tbody>
-                  <?php echo $this->layout()->content; ?>
+                  
                 <tr>
                   <td>8001</td>
                   <td>06:28</td>

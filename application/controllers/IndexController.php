@@ -10,7 +10,8 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        $rute = new Application_Form_Pretraga();
+        $this->view->forma = $rute;
     }
 
     public function naruciAction()
