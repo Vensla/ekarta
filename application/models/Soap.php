@@ -30,9 +30,9 @@ class Application_Model_Soap
         return $this->klijent->stanicaIzlazna($id);
     }
     
-    public function getRuta()    
+    public function getRuta($ulazna, $izlazna, $datum)    
     {
-        return $this->klijent->pronadjiRutu();
+        return $this->klijent->pronadjiRutu($ulazna, $izlazna, $datum);
     }
 
 }
