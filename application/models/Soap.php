@@ -2,16 +2,15 @@
 
 class Application_Model_Soap
 {
-    
+    protected $klijent;
     public function Soap()
     {
-        $klijent = null;
         $opcije = array(
             'location' => 'http://ps/Index/soap',
             'uri' => 'http://ps/Index/soap'
         );
         try {
-            $klijent = new Zend_Soap_Client(null, $opcije);
+            $this->klijent = new Zend_Soap_Client(null, $opcije);
        
         } catch (SoapFault $s) {
             die('Error[' . $s->faultcode . ']' . $s->faultstring);
@@ -22,8 +21,7 @@ class Application_Model_Soap
     }
     public function getUlazneStanice()
     {
-        $klijent->stanicaUlazna();
-        return $klijent;
+        return $this->klijent->stanicaUlazna();
     }
     
 
