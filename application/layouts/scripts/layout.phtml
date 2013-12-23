@@ -16,70 +16,19 @@
     <![endif]-->
   </head>
   <body>
-    <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
         <h1>E-karta!</h1>
         <p>Najbrži i najlakši način da naručite karte za putovanje vozom.</p>
         <?php echo $this->layout()->content; ?>
-        <!--<form action="" method="post" name="podaci">
-          <div class="form-group">
-            <div class="row">
-              <div class="col-sm-4">
-                <input type="textbox" class="form-control" name="tbPocetak" placeholder="Polazak" list="Stanice">
-              </div>
-              <div class="col-sm-4">
-                <input type="textbox" class="form-control" name="tbOdrediste" placeholder="Odredište" list="Stanice">
-              </div>
-              
-              <div class="col-sm-4">
-                <input type="textbox" class="form-control" name="Datum" placeholder="Datum" id="datepicker">
-              </div>
-            </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12">
-              <input type="submit" class="form-control btn btn-primary" value="Pronađi &raquo;">
-            </div>
-          </div>
-        </form> -->
-        <datalist id="Stanice">               
-                <option value="ADRANI">
-                <option value="ADROVAC">
-                <option value="ALEKSA ŠANTIĆ">
-                <option value="ALEKSANDROVO PREDGRAĐE">
-                <option value="ALEKSINAC">
-                <option value="ALIBUNAR">
-                <option value="BABIN POTOK">
-                <option value="BAČKA TOPOLA">
-                <option value="BAČKI MAGLIĆ">
-                <option value="BAČKI VINOGRADI">
-                <option value="BAD GASTEIN">
-                <option value="BAD HOFGASTAIN">
-                <option value="BADNJEVAC">
-                <option value="BAGRDAN">
-                <option value="BAJMOK">
-                <option value="BALUGA">
-                <option value="BANAT.MILOŠEVO POLJE">
-                <option value="BANATSKI DESPOTOVAC">
-                <option value="BANATSKI KARLOVAC">
-                <option value="BANATSKO MILOŠEVO">
-                <option value="BANATSKO NOVO SELO">
-                <option value="BANJSKA">
-                <option value="BANOVA JARUGA">
-                <option value="BAR">
-              </datalist>
       </div>
     </div>
 
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <div class="progress progress-striped active">
-            <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
-            </div>
-          </div>
-            <h3>Ne postoji izabrana relacija!<a href="<?php echo $this->url(array('b'=>1),'naruci'); ?>">forma</a></h3>
+          
+            <a href="<?php echo $this->url(array('b'=>1),'naruci'); ?>">forma</a>
           <div class="table-responsive">
             <table class="table">
               <thead>

@@ -10,8 +10,11 @@ class Application_Form_Pretraga extends Zend_Form
         $od = new Zend_Form_Element_Select('ddlOd');
         $od->class = 'form-control';
         $od->setRequired(true);
-        $od->setLabel('Pocetna');
-        
+        $od->setMultiOptions(array(
+            0 => 'Beograd',
+            1 => 'Pancevo',
+            2 => 'Stara Pazova'
+        ));
         $do = new Zend_Form_Element_Select('tbDo');
         $do->class = 'form-control';
         $do->setRequired(true);
@@ -42,4 +45,3 @@ class Application_Form_Pretraga extends Zend_Form
 
 
 }
-
