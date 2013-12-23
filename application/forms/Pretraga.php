@@ -7,17 +7,14 @@ class Application_Form_Pretraga extends Zend_Form
     {
         $this->setAction('naslovna')->setMethod('post');
         
-        $od = new Zend_Form_Element_Text('tbOd');
+        $od = new Zend_Form_Element_Select('ddlOd');
         $od->class = 'form-control';
         $od->setRequired(true);
-        $od->addValidator('regex', false, array('/^[A-Z]*[a-z]*$/'))->addErrorMessage('Stanica nije u dobrom formatu!');
-        $od->setAttribs(array('placeholder'=>'Polazak','list'=>'Stanice'));
+        $od->setLabel('Pocetna');
         
-        $do = new Zend_Form_Element_Text('tbDo');
+        $do = new Zend_Form_Element_Select('tbDo');
         $do->class = 'form-control';
         $do->setRequired(true);
-        $do->addValidator('regex', false, array('/^[A-Z]*[a-z]*$/'))->addErrorMessage('Stanica nije u dobrom formatu!');
-        $do->setAttribs(array('placeholder'=>'Odredište','list'=>'Stanice'));
         
         $datum = new Zend_Form_Element_Text('tbDatum');
         $datum->class = 'form-control';
