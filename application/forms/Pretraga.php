@@ -10,11 +10,12 @@ class Application_Form_Pretraga extends Zend_Form
         $od = new Zend_Form_Element_Select('ddlOd');
         $od->class = 'form-control';
         $od->setRequired(true);
-        $od->setMultiOptions(array(
-            0 => 'Beograd',
-            1 => 'Pancevo',
-            2 => 'Stara Pazova'
-        ));
+        $staniceM = new Application_Model_Soap();
+        $stanice = $staniceM->getUlazneStanice();
+        foreach($stanice as $stanica){
+            $od->addMultiOption($stanica->getId(),$stanica->getPunNaziv());
+        }
+        
         $do = new Zend_Form_Element_Select('tbDo');
         $do->class = 'form-control';
         $do->setRequired(true);
