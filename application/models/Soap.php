@@ -19,11 +19,20 @@ class Application_Model_Soap
         }
 
     }
+    
     public function getUlazneStanice()
     {
         return $this->klijent->stanicaUlazna();
     }
     
+    public function getIzlazneStanice($id)
+    {
+        return $this->klijent->stanicaIzlazna($id);
+    }
+    
+    public function getRuta()    
+    {
+        return $this->klijent->pronadjiRutu();
+    }
 
 }
-
