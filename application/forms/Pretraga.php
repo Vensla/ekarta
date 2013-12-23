@@ -13,7 +13,7 @@ class Application_Form_Pretraga extends Zend_Form
         $staniceM = new Application_Model_Soap();
         $stanice = $staniceM->getUlazneStanice();
         foreach($stanice as $stanica){
-            $od->addMultiOption($stanica->getId(),$stanica->getNaziv());
+            $od->addMultiOption($stanica->_idStanica,$stanica->_naziv);
         }
         
         $do = new Zend_Form_Element_Select('tbDo');

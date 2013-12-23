@@ -3,7 +3,7 @@
 class Application_Model_Soap
 {
     protected $klijent;
-    public function Soap()
+    public function Application_Model_Soap()
     {
         $opcije = array(
             'location' => 'http://ps/Index/soap',
