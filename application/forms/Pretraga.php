@@ -16,7 +16,7 @@ class Application_Form_Pretraga extends Zend_Form
             $od->addMultiOption($stanica->_idStanica,$stanica->_naziv);
         }
         
-        $do = new Zend_Form_Element_Select('tbDo');
+        $do = new Zend_Form_Element_Select('ddlDo');
         $do->class = 'form-control';
         $do->setRequired(true);
         

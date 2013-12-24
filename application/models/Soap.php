@@ -17,13 +17,20 @@ class Application_Model_Soap
         } catch (Exception $e) {
             die('Error:' . $e->getMessage());
         }
-
+        
     }
     public function getUlazneStanice()
     {
         return $this->klijent->stanicaUlazna();
     }
     
+    public function getIzlazneStanice($id){
+        return $this->klijent->stanicaIzlazna($id);
+    }
+    
+    public function getRute($idUlazna, $idIzlazna, $datum){
+        
+    }
 
 }
 
