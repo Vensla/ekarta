@@ -21,7 +21,22 @@ class IndexController extends Zend_Controller_Action
 
     public function izlazneAction()
     {   
- 
+        $request=$this->getRequest();
+        if($request->isXmlHttpRequest()){
+            $izlazneStanice = array();
+            $this->_helper->layout()->disableLayout(); 
+            $this->_helper->viewRenderer->setNoRender(true);
+            $id=$request->getParam('usid');
+            $result=null;
+            if(!empty($id)){
+                $staniceM = new Application_Model_Soap(); 
+                $result = $staniceM->getUlazneStanice();
+                foreach ($result as $stanica){
+                    $izlazneStanice[$stanica->_idStanica] = $stanica->_naziv;
+                }
+            }
+            print Zend_Json::encode($izlazneStanice,  Zend_Json::TYPE_OBJECT);
+        }
     }
 
 
