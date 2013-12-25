@@ -17,7 +17,7 @@ class Application_Model_Soap
         } catch (Exception $e) {
             die('Error:' . $e->getMessage());
         }
-        
+
     }
     
     public function getUlazneStanice()
