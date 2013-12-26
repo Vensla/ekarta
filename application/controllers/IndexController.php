@@ -28,7 +28,7 @@ class IndexController extends Zend_Controller_Action
             $this->_helper->viewRenderer->setNoRender(true);
             $id=$request->getParam('usid');
             $result=null;
-            if(!empty($id)){
+            if(!empty($id) && $id != 0){
                 $staniceM = new Application_Model_Soap(); 
                 $result = $staniceM->getUlazneStanice();
                 foreach ($result as $stanica){

@@ -12,6 +12,7 @@ class Application_Form_Pretraga extends Zend_Form
         $od->setRequired(true);
         $staniceM = new Application_Model_Soap();
         $stanice = $staniceM->getUlazneStanice();
+        $od->addMultiOption(0, 'Izaberite...');
         foreach($stanice as $stanica){
             $od->addMultiOption($stanica->_idStanica,$stanica->_naziv);
         }
