@@ -50,9 +50,14 @@ class Application_Model_Soap
         return $this->klijent->sacuvajKartu($obj);
     }
     
-    public function nadjiKartu($idK)    
+    public function napraviObjKarte()    
     {
-        return $this->klijent->pronadjiKartu($idK);
+        return $this->klijent->getKarta();
+    }
+    
+     public function nadjiKartu($id)    
+    {
+        return $this->klijent->pronadjiKartu($id);
     }
 
 }

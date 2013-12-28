@@ -104,13 +104,20 @@ class IndexController extends Zend_Controller_Action
 
     public function stampaAction()
     {
-        //$this->_helper->layout()->disableLayout(); 
+        $this->_helper->layout()->disableLayout(); 
         $request=$this->getRequest();
         $this->view->id = $request->getParam('karta');
         $model = new Application_Model_Soap(); 
         $id = (int)$request->getParam('karta');
         $result = $model->nadjiKartu($id);
         print_r($result);
+        if($result->_povratna == 1){
+            $povratna = "Da";
+        }else{
+            $povratna = "Ne";
+        }
+        echo "<table style='padding:20px;'><tr><td>Ulazna stanica:</td><td>".$result->_idStanicaPolaska."</td></tr><tr><td>Izlazna stanica:</td><td>".$result->_idStanicaDolaska."</td></tr><tr><td>Povratna</td><td>".$povratna."</td></tr>"
+            . "<tr><td>Popust:</td><td>".$result->_naznakaPopusta."</td></tr><tr><td>Cena:</td><td>".$result->_cena." din</td></tr></table>";
     }
 
 
