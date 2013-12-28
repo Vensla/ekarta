@@ -1,5 +1,5 @@
 <?php 
- include('g:\www\ps-web\ekarta\public\phpqrcode\qrlib.php'); 
- var_dump(QRcode::png('code data text', 'img/kod.png'));  
+ include('phpqrcode/qrlib.php'); 
+ QRcode::png('code data text', 'img/kod.png');  
  ?>
 <img src="/img/kod.png" />

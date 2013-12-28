@@ -110,7 +110,7 @@ class IndexController extends Zend_Controller_Action
         $model = new Application_Model_Soap(); 
         $id = (int)$request->getParam('karta');
         $result = $model->nadjiKartu($id);
-        print_r($result);
+//print_r($result);
         if($result->_povratna == 1){
             $povratna = "Da";
         }else{
