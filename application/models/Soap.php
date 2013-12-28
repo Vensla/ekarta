@@ -59,5 +59,10 @@ class Application_Model_Soap
     {
         return $this->klijent->pronadjiKartu($id);
     }
+    
+    public function cenaKarte($idTrasa, $idPolazneStanice, $idDolazneStanice, $idPopust, $povratna)    
+    {
+        return $this->klijent->izracunajCenuKarte($idTrasa, $idPolazneStanice, $idDolazneStanice, $idPopust, $povratna);
+    }
 
 }

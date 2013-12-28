@@ -30,6 +30,7 @@ class IndexController extends Zend_Controller_Action
         $date = date_parse_from_format('d.m.Y', $d);
         $vremePolaska = mktime(0, 0, 0, $date['month'], $date['day'], $date['year']);
         if ($request->isPost() && $naruci->isValid($request->getPost()) && $naruci->getValue('ddlPovratna') != 5) {
+            $cena = $model->cenaKarte($request->getParam("trasa"), $request->getParam("usid"),$request->getParam("isid") , $naruci->getValue('ddlPopust'), $naruci->getValue('ddlPovratna'));
             $data = array(
                 //'idKarta' => $idKarte,
                 'idTrasa' => $request->getParam("trasa"),
@@ -37,7 +38,7 @@ class IndexController extends Zend_Controller_Action
                 'idStanicaPolaska' => $request->getParam("usid"),
                 'idStanicaDolaska' => $request->getParam("isid"),
                 'vremePolaska' => $vremePolaska,
-                'cena' => 500,
+                'cena' => $cena,
                 'aktivnost' => 1,
                 'povratna' => $naruci->getValue('ddlPovratna')
             );
@@ -107,7 +108,7 @@ class IndexController extends Zend_Controller_Action
         $this->_helper->layout()->disableLayout(); 
         $request=$this->getRequest();
         $this->view->id = $request->getParam('karta');
-        $model = new Application_Model_Soap(); 
+        $model = new Application_Model_Soap();
         $id = (int)$request->getParam('karta');
         $result = $model->nadjiKartu($id);
         if($result->_povratna == 1){
