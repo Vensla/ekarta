@@ -1,4 +1,7 @@
-<br /><br />
-<div id="view-content">
-	<p>View script for controller <b>Index</b> and script/action name <b>naruci</b></p>
-</div>
+<?php print $this->forma;
+    ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#table").append("<tr><td>8001</td><td><?php print $this->rezultat->_vremePolaska; ?></td><td><?php print $this->datum; ?></td><td><?php print $this->datum; ?></td><td>Brzi</td><td></td></tr>");
+    });
+</script>

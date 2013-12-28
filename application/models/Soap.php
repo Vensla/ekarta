@@ -34,5 +34,25 @@ class Application_Model_Soap
     {
         return $this->klijent->pronadjiRutu($ulazna, $izlazna, $datum);
     }
+    
+    public function getPopusti()    
+    {
+        return $this->klijent->popusti();
+    }
+    
+    public function getRedVoznje($id)    
+    {
+        return $this->klijent->getVoznja($id);
+    }
+    
+    public function napraviKartu($obj)    
+    {
+        return $this->klijent->sacuvajKartu($obj);
+    }
+    
+    public function napraviObjKarte()    
+    {
+        return $this->klijent->getKarta();
+    }
 
 }

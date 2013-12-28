@@ -22,20 +22,28 @@
                 $.post('/Index/izlazne',{usid:id},function(data){
                     data = $.parseJSON(data);
                     $('#ddlDo').empty();
+                    $('#table').empty();
                     $.each(data, function(key, val) {
                         $('#ddlDo').append(new Option(val,key));
                     });
                 });
             });
+            $('#ddlDo').change(function(){
+                $('#table').empty();
+            });
+            $('#datepicker').change(function(){
+                $('#table').empty();
+            });
             $('#btnLista').click(function(){
                 var idU=$('#ddlOd').val();
                 var idI=$('#ddlDo').val();
                 var datum=$('#datepicker').val();
-                $.post('/Index/izlazne',{usid:id},function(data){
+                $.post('/Index/lista',{usid:idU,isid:idI,d:datum},function(data){
                     data = $.parseJSON(data);
-                    $('#ddlDo').empty();
+                    $('#table').empty();
                     $.each(data, function(key, val) {
-                        $('#ddlDo').append(new Option(val,key));
+                        var arr = val.split(' ');
+                        $('#table').append("<tr><td>8001</td><td>"+arr[2]+"</td><td>"+datum+"</td><td>"+datum+"</td><td>Brzi</td><td></td><td><a href='/Index/naruci/redVoznje/"+key+"/trasa/"+arr[0]+"/usid/"+idU+"/isid/"+idI+"/vp/"+arr[2]+"/datum/"+datum+"'>Naručite kartu</a></td></tr>");
                     });
                 });
             });
@@ -53,7 +61,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                    <a href="<?php echo $this->url(array('b' => 1), 'naruci'); ?>">forma</a>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -61,54 +68,17 @@
                                     <th>Voz</th>
                                     <th>Polazak</th>
                                     <th>Datum</th>
-                                    <th>Dolazak</th>
                                     <th>Datum dolaska</th>
-                                    <th>Putuje</th>
                                     <th>Rang</th>
                                     <th>Napomena</th>
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
-
-                                <tr>
-                                    <td>8001</td>
-                                    <td>06:28</td>
-                                    <td>08.12.2013</td>
-                                    <td>06:31</td>
-                                    <td>08.12.2013</td>
-                                    <td>00:03</td>
-                                    <td>Brzi</td>
-                                    <td></td>
-                                    <td><input type="button" class="btn btn-normal" value="Naruci"></td>
-                                </tr>
-                                <tr>
-                                    <td>8001</td>
-                                    <td>06:28</td>
-                                    <td>08.12.2013</td>
-                                    <td>06:31</td>
-                                    <td>08.12.2013</td>
-                                    <td>00:03</td>
-                                    <td>Brzi</td>
-                                    <td></td>
-                                    <td><input type="button" class="btn btn-normal" value="Naruci"></td>
-                                </tr>
-                                <tr>
-                                    <td>8001</td>
-                                    <td>06:28</td>
-                                    <td>08.12.2013</td>
-                                    <td>06:31</td>
-                                    <td>08.12.2013</td>
-                                    <td>00:03</td>
-                                    <td>Brzi</td>
-                                    <td></td>
-                                    <td><input type="button" class="btn btn-normal" value="Naruci"></td>
-                                </tr>
-                            </tbody>
+                            <tbody id="table"></tbody>
                         </table>
                     </div>
 
-                    <ul class="pagination pagination-centered">
+                    <!--<ul class="pagination pagination-centered">
                         <li><a href="#">&laquo;</a></li>
                         <li><a href="#">1</a></li>
                         <li><a href="#">2</a></li>
@@ -116,7 +86,7 @@
                         <li><a href="#">4</a></li>
                         <li><a href="#">5</a></li>
                         <li><a href="#">&raquo;</a></li>
-                    </ul>
+                    </ul> -->
                 </div>
 
                 <div class="row">
@@ -139,7 +109,7 @@
             $(function() {
                 $("#datepicker").datepicker({
                     minDate: dateToday,
-                    dateFormat: "dd/mm/yy"
+                    dateFormat: "(D) d.m.yy"
                 });
             });
         </script>
