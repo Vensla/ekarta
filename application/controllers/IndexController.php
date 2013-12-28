@@ -11,7 +11,7 @@ class IndexController extends Zend_Controller_Action
     public function indexAction()
     {
         $rute = new Application_Form_Pretraga();
-        $this->view->forma = $rute;   
+        $this->view->forma = $rute;
     }
 
     public function naruciAction()
@@ -25,11 +25,13 @@ class IndexController extends Zend_Controller_Action
         $this->view->rezultat = $result;
         $this->view->datum = $request->getParam('datum');
         $datum = $request->getParam('datum');
-        $date = date_parse_from_format('d/m/Y', $datum);
+        $datum = explode(" ", $datum);
+        $d = $datum[1];
+        $date = date_parse_from_format('d.m.Y', $d);
         $vremePolaska = mktime(0, 0, 0, $date['month'], $date['day'], $date['year']);
         if ($request->isPost() && $naruci->isValid($request->getPost()) && $naruci->getValue('ddlPovratna') != 5) {
             $data = array(
-                //'idKarta' => 100,
+                //'idKarta' => $idKarte,
                 'idTrasa' => $request->getParam("trasa"),
                 'idPopust' => $naruci->getValue('ddlPopust'),
                 'idStanicaPolaska' => $request->getParam("usid"),
@@ -41,8 +43,8 @@ class IndexController extends Zend_Controller_Action
             );
             $karta = $model->napraviObjKarte();
             $karta = (object) $data;
-            print_r($karta);
-            print_r($model->napraviKartu($karta));
+            $poruka = $model->napraviKartu($karta);
+            $this->view->poruka = "Uspešno ste naručili kartu. Id Vaše karte je: ".$poruka.". <a href='/Index/stampa/karta/".$poruka."'>Štampa</a>";
             $naruci->reset();
         }
     }
@@ -100,8 +102,21 @@ class IndexController extends Zend_Controller_Action
         }
     }
 
+    public function stampaAction()
+    {
+        //$this->_helper->layout()->disableLayout(); 
+        $request=$this->getRequest();
+        $this->view->id = $request->getParam('karta');
+        $model = new Application_Model_Soap(); 
+        $id = (int)$request->getParam('karta');
+        $result = $model->nadjiKartu($id);
+        print_r($result);
+    }
+
 
 }
+
+
 
 
 

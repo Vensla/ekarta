@@ -43,7 +43,7 @@
                     $('#table').empty();
                     $.each(data, function(key, val) {
                         var arr = val.split(' ');
-                        $('#table').append("<tr><td>8001</td><td>"+arr[2]+"</td><td>"+datum+"</td><td>"+datum+"</td><td>Brzi</td><td></td><td><a href='/Index/naruci/redVoznje/"+key+"/trasa/"+arr[0]+"/usid/"+idU+"/isid/"+idI+"/vp/"+arr[2]+"/datum/"+datum+"'>Naručite kartu</a></td></tr>");
+                        $('#table').append("<tr><td>"+arr[2]+"</td><td>"+datum+"</td><td>"+datum+"</td><td>Brzi</td><td></td><td><a href='/Index/naruci/redVoznje/"+key+"/trasa/"+arr[0]+"/usid/"+idU+"/isid/"+idI+"/vp/"+arr[2]+"/datum/"+datum+"'>Naručite kartu</a></td></tr>");
                     });
                 });
             });
@@ -65,7 +65,6 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Voz</th>
                                     <th>Polazak</th>
                                     <th>Datum</th>
                                     <th>Datum dolaska</th>

@@ -2,6 +2,8 @@
     ?>
 <script type="text/javascript">
     $(document).ready(function(){
-        $("#table").append("<tr><td>8001</td><td><?php print $this->rezultat->_vremePolaska; ?></td><td><?php print $this->datum; ?></td><td><?php print $this->datum; ?></td><td>Brzi</td><td></td></tr>");
+        $("#table").append("<tr><td><?php print $this->rezultat->_vremePolaska; ?></td><td><?php print $this->datum; ?></td><td><?php print $this->datum; ?></td><td>Brzi</td><td></td></tr>");
     });
 </script>
+<br>
+<?php print $this->poruka;
