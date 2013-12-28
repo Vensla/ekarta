@@ -116,7 +116,7 @@ class IndexController extends Zend_Controller_Action
         }else{
             $povratna = "Ne";
         }
-        echo "<table style='padding:20px;'><tr><td>Ulazna stanica:</td><td>".$result->_idStanicaPolaska."</td></tr><tr><td>Izlazna stanica:</td><td>".$result->_idStanicaDolaska."</td></tr><tr><td>Povratna</td><td>".$povratna."</td></tr>"
+        echo "<table style='padding:20px; border:1px solid;'><tr><td>Ulazna stanica:</td><td>".$result->_idStanicaPolaska."</td></tr><tr><td>Izlazna stanica:</td><td>".$result->_idStanicaDolaska."</td></tr><tr><td>Povratna:</td><td>".$povratna."</td></tr>"
             . "<tr><td>Popust:</td><td>".$result->_naznakaPopusta."</td></tr><tr><td>Cena:</td><td>".$result->_cena." din</td></tr></table>";
     }
 
