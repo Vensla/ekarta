@@ -30,7 +30,7 @@ class IndexController extends Zend_Controller_Action
             $result=null;
             if(!empty($id) && $id != 0){
                 $staniceM = new Application_Model_Soap(); 
-                $result = $staniceM->getUlazneStanice();
+                $result = $staniceM->getIzlazneStanice($id);
                 foreach ($result as $stanica){
                     $izlazneStanice[$stanica->_idStanica] = $stanica->_naziv;
                 }

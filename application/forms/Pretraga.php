@@ -27,7 +27,7 @@ class Application_Form_Pretraga extends Zend_Form
         $datum->addValidator('regex', false, array('/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/'))->addErrorMessage('Datum nije u dobrom formatu!');
         $datum->setAttribs(array('placeholder'=>'Datum','id'=>'datepicker'));
         
-        $submit = new Zend_Form_Element_Submit('btnLista');
+        $submit = new Zend_Form_Element_Button('btnLista');
         $submit->setLabel('Pronađi rutu');
         $submit->class = 'form-control btn-primary';
         

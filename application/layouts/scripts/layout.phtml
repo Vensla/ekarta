@@ -27,6 +27,18 @@
                     });
                 });
             });
+            $('#btnLista').click(function(){
+                var idU=$('#ddlOd').val();
+                var idI=$('#ddlDo').val();
+                var datum=$('#datepicker').val();
+                $.post('/Index/izlazne',{usid:id},function(data){
+                    data = $.parseJSON(data);
+                    $('#ddlDo').empty();
+                    $.each(data, function(key, val) {
+                        $('#ddlDo').append(new Option(val,key));
+                    });
+                });
+            });
         });
     </script>
   </head>
